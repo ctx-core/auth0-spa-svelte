@@ -33,21 +33,9 @@ import type { Auth0Error } from 'auth0-js'
 import { onDestroy } from 'svelte'
 export class Auth0_c {
 	constructor(protected ctx:Ctx) {}
-	readonly auth0__login__body_ = (data:any)=>
-		auth0__body_<login__password_realm__body_T>(
-			this.ctx, data)
-	readonly auth0__login__password_realm__body_ = (data:any)=>
-		password_realm__body_<login__password_realm__body_T>(
-			this.ctx,
-			this.auth0__login__body_(data))
-	readonly auth0__signup__body_ = (data:any)=>
-		auth0__body_<signup__password_realm__body_T>(this.ctx, data) as signup__password_realm__body_T
-	readonly auth0__signup__password_realm__body_ = (data:any)=>
-		password_realm__body_<signup__password_realm__body_T>(this.ctx, this.auth0__signup__body_(data))
 	readonly auth0__opened__class_ = auth0__opened__class__(this.ctx)
 	readonly auth0__token__json_ = auth0__token__json__(this.ctx)
 	readonly auth0__token__error_ = auth0__token__error__(this.ctx)
-	readonly auth0__close = ()=>auth0__close(this.ctx)
 	readonly onMount = async (root:HTMLElement)=>{
 		if (has_dom) {
 			const unsubscribe =
@@ -56,14 +44,17 @@ export class Auth0_c {
 		}
 	}
 	readonly login = async (data:auth0__login_data_T, forms__clear__schedule = ()=>{})=>{
+		const body = password_realm__body_<login__password_realm__body_T>(
+			this.ctx,
+			auth0__body_<login__password_realm__body_T>(
+				this.ctx, data))
 		const [auth0_token, response] = await auth0__oauth_token__fetch_post(
-			this.ctx, this.auth0__login__password_realm__body_(data)
-		)
+			this.ctx, body)
 		if (response.ok) {
 			const auth0__token__json = JSON.stringify(auth0_token)
 			this.auth0__token__json_.$ = auth0__token__json
 			forms__clear__schedule()
-			this.auth0__close()
+			auth0__close(this.ctx)
 		} else {
 			const auth0__token__error = auth0_token as auth0__token__error_T
 			this.auth0__token__error_.$ = auth0__token__error
@@ -71,9 +62,10 @@ export class Auth0_c {
 		}
 	}
 	readonly signup = async (data:auth0__signup_data_T, forms__clear__schedule = ()=>{})=>{
+		const body = password_realm__body_<signup__password_realm__body_T>(
+			this.ctx, auth0__body_<signup__password_realm__body_T>(this.ctx, data) as signup__password_realm__body_T)
 		const [auth0_userinfo] = await auth0__dbconnections_signup__fetch_get(
-			this.ctx,
-			this.auth0__signup__password_realm__body_(data))
+			this.ctx, body)
 		const auth0_userinfo_Auth0Error = auth0_userinfo as Auth0Error
 		const { statusCode } = auth0_userinfo_Auth0Error
 		if (statusCode) {
@@ -119,7 +111,7 @@ export class Auth0_c {
 			return
 		}
 		forms__clear__schedule()
-		this.auth0__close()
+		auth0__close(this.ctx)
 	}
 	readonly forms__clear__schedule_:(root:HTMLElement)=>void = (root:HTMLElement)=>{
 		return ()=>this.forms__clear__schedule(root)
@@ -181,7 +173,8 @@ export class Auth0_c {
 			return
 		}
 		await auth0__passwordless_start__fetch_post(
-			this.ctx, this.auth0__login__body_(data) as auth0__passwordless_start__fetch__body_T)
+			this.ctx, auth0__body_<login__password_realm__body_T>(
+				this.ctx, data) as auth0__passwordless_start__fetch__body_T)
 		auth0__forgot_password__check_email__open(this.ctx)
 	}
 	readonly change_password__onsubmit = async (
@@ -208,7 +201,7 @@ export class Auth0_c {
 	}
 	readonly onclose = async (event:MouseEvent)=>{
 		event.preventDefault()
-		this.auth0__close()
+		auth0__close(this.ctx)
 	}
 }
 function inputs__clear(inputs:NodeList) {
