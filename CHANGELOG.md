@@ -1,5 +1,11 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.0.3
+
+### Patch Changes
+
+- Auth0: fix: reference to auth0**ui**o_key from @ctx-core/auth0
+
 ## 1.0.2
 
 ### Patch Changes

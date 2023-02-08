@@ -1,11 +1,15 @@
 <script lang="ts">
 import { setContext } from 'svelte'
 import {
-	auth0__forgot_password__opened__, auth0__opened__class__, auth0__login__opened__, auth0__signup__opened__,
-	auth0__forgot_password__check_email__opened__, auth0__change_password__opened__
+	auth0__change_password__opened__,
+	auth0__forgot_password__check_email__opened__,
+	auth0__forgot_password__opened__,
+	auth0__login__opened__,
+	auth0__opened__class__,
+	auth0__signup__opened__
 } from '@ctx-core/auth0'
+import { auth0__ui__o_key } from '@ctx-core/auth0-ui'
 import { ctx_ } from '@ctx-core/object'
-import { auth0__ui__o_key } from '../auth0__ui__o_key.js'
 import { Auth0_c } from './Auth0_c.js'
 import Auth0_Change_Password_Form from './Auth0_Change_Password_Form.svelte'
 import Auth0_Dialog_Close from './Auth0_Dialog_Close.svelte'
