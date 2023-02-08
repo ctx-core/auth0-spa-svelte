@@ -1,6 +1,6 @@
 {
-	"name": "@ctx-core/auth0-ui-svelte",
-	"version": "1.0.5",
+	"name": "@ctx-core/auth0-spa-svelte",
+	"version": "1.0.0",
 	"description": "ctx-core auth0 ui component & express endpoints",
 	"keywords": [
 		"ctx-core",
@@ -13,7 +13,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ctx-core/auth0-ui.git"
+		"url": "https://github.com/ctx-core/auth0-spa-svelte.git"
 	},
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
