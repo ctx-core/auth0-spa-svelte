@@ -44,14 +44,14 @@ export class Auth0_c {
 		auth0__body_<signup__password_realm__body_T>(this.ctx, data) as signup__password_realm__body_T
 	readonly auth0__signup__password_realm__body_ = (data:any)=>
 		password_realm__body_<signup__password_realm__body_T>(this.ctx, this.auth0__signup__body_(data))
-	readonly auth0__opened__class = auth0__opened__class__(this.ctx)
+	readonly auth0__opened__class_ = auth0__opened__class__(this.ctx)
 	readonly auth0__token__json_ = auth0__token__json__(this.ctx)
 	readonly auth0__token__error_ = auth0__token__error__(this.ctx)
 	readonly auth0__close = ()=>auth0__close(this.ctx)
 	readonly onMount = async (root:HTMLElement)=>{
 		if (has_dom) {
 			const unsubscribe =
-				this.auth0__opened__class.subscribe(()=>this.forms__clear__schedule(root))
+				this.auth0__opened__class_.subscribe(()=>this.forms__clear__schedule(root))
 			onDestroy(unsubscribe)
 		}
 	}
