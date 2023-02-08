@@ -1,31 +1,30 @@
-import type {
-	auth0__client_id__body_T,
-	auth0__grant_type__body_T,
-	auth0__login_data_T,
-	auth0__oauth_token__fetch__body_T,
-	auth0__passwordless_start__fetch__body_T,
-	auth0__passwordless_start__fetch__optional_body_T,
-	auth0__signup_data_T,
-	password_realm__body_T
-} from '@ctx-core/auth0'
 import {
 	auth0__body_,
 	auth0__change_password__fetch_post,
 	auth0__change_password__validate,
+	type auth0__client_id__body_T,
 	auth0__close,
 	auth0__dbconnections_signup__fetch_get,
 	auth0__forgot_password__check_email__open,
 	auth0__forgot_password__validate,
+	type auth0__grant_type__body_T,
 	auth0__login__open,
+	type auth0__login_data_T,
+	type auth0__oauth_token__fetch__body_T,
 	auth0__oauth_token__fetch_post,
 	auth0__opened__class__,
+	type auth0__passwordless_start__fetch__body_T,
+	type auth0__passwordless_start__fetch__optional_body_T,
 	auth0__passwordless_start__fetch_post,
 	auth0__signup__validate,
+	type auth0__signup_data_T,
 	auth0__token__error__,
 	auth0__token__error__clear,
-	auth0__token__error__logout, auth0__token__error_T,
+	auth0__token__error__logout,
+	type auth0__token__error_T,
 	auth0__token__json__,
-	password_realm__body_
+	password_realm__body_,
+	type password_realm__body_T,
 } from '@ctx-core/auth0'
 import { dom_a_, has_dom } from '@ctx-core/dom'
 import { noop } from '@ctx-core/function'

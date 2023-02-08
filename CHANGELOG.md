@@ -1,5 +1,15 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.0.4
+
+### Patch Changes
+
+- name convention updates:
+
+  Auth0
+  Auth0_Login_Form
+  Auth0_c
+
 ## 1.0.3
 
 ### Patch Changes

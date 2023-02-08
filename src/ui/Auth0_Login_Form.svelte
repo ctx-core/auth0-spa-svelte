@@ -1,14 +1,18 @@
 <script lang="ts">
 import {
-	AUTH0_DOMAIN__, auth0__token__error__, auth0__token__error_txt__, auth0__forgot_password__open, auth0__signup__open
+	auth0__forgot_password__open,
+	auth0__signup__open,
+	auth0__token__error__,
+	auth0__token__error_txt__,
+	AUTH0_DOMAIN__,
 } from '@ctx-core/auth0'
 import { type Ctx } from '@ctx-core/object'
 import { Auth0_c } from './Auth0_c.js'
 import Auth0_Dialog_Close from './Auth0_Dialog_Close.svelte'
 export let ctx:Ctx, error_class = '', input_class = '', button_class = '', label_class = '.js'
 const auth0__token__error_ = auth0__token__error__(ctx)
-const auth0_token_error_txt_ = auth0__token__error_txt__(ctx)
-const AUTH0_DOMAIN = AUTH0_DOMAIN__(ctx)
+const auth0__token__error_txt_ = auth0__token__error_txt__(ctx)
+const AUTH0_DOMAIN_ = AUTH0_DOMAIN__(ctx)
 const _ = new Auth0_c(ctx)
 let root:HTMLDivElement
 let username__input:HTMLInputElement, password__input:HTMLInputElement
@@ -22,7 +26,7 @@ $: password__error = $auth0__token__error_?.password //endregion
 	<Auth0_Dialog_Close></Auth0_Dialog_Close>
 	<h1><slot name="login_text">Welcome</slot></h1>
 	<form
-		action="https://{$AUTH0_DOMAIN}/oauth/token"
+		action="https://{$AUTH0_DOMAIN_}/oauth/token"
 		accept-charset="UTF-8"
 		method="post"
 		on:submit={event =>
@@ -31,10 +35,10 @@ $: password__error = $auth0__token__error_?.password //endregion
 				password__input,
 			}, ()=>_.forms__clear__schedule(root))}
 	>
-		{#if $auth0_token_error_txt_}
+		{#if $auth0__token__error_txt_}
 			<ul>
 				<li class="error {error_class}">
-					{$auth0_token_error_txt_}
+					{$auth0__token__error_txt_}
 				</li>
 			</ul>
 		{/if}
