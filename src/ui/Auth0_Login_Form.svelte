@@ -11,11 +11,11 @@ const auth0_token_error_txt_ = auth0__token__error_txt__(ctx)
 const AUTH0_DOMAIN = AUTH0_DOMAIN__(ctx)
 const _ = new Auth0_c(ctx)
 let root:HTMLDivElement
-let username_login_input:HTMLInputElement, password_login_input:HTMLInputElement
-let error_username:string|undefined//region
-$: error_username = $auth0_token_error_?.username //endregion
-let error_password:string|undefined//region
-$: error_password = $auth0_token_error_?.password //endregion
+let username__input:HTMLInputElement, password__input:HTMLInputElement
+let username__error:string|undefined//region
+$: username__error = $auth0__token__error_?.username //endregion
+let password__error:string|undefined//region
+$: password__error = $auth0__token__error_?.password //endregion
 </script>
 
 <div bind:this={root} class="form {$$props.class||''}">
@@ -27,8 +27,8 @@ $: error_password = $auth0_token_error_?.password //endregion
 		method="post"
 		on:submit={event =>
 			_.login__onsubmit(event, {
-				username_login_input,
-				password_login_input
+				username__input,
+				password__input,
 			}, ()=>_.forms__clear__schedule(root))}
 	>
 		{#if $auth0_token_error_txt_}
@@ -42,11 +42,11 @@ $: error_password = $auth0_token_error_?.password //endregion
 			<label class="field">
 				<div class={label_class}>Email</div>
 				<input
-					bind:this={username_login_input}
+					bind:this={username__input}
 					placeholder="your@email.com"
 					required="required"
 					class="form-control {input_class}"
-					class:invalid={error_username}
+					class:invalid={username__error}
 					type="email"
 					id="username-login"
 					name="username"/>
@@ -54,11 +54,11 @@ $: error_password = $auth0_token_error_?.password //endregion
 			<label class="field">
 				<div class={label_class}>Password</div>
 				<input
-					bind:this={password_login_input}
+					bind:this={password__input}
 					placeholder="**********"
 					required="required"
 					class={input_class}
-					class:invalid={error_password}
+					class:invalid={password__error}
 					id="password-login"
 					type="password"
 					name="password"/>

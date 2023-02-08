@@ -23,7 +23,7 @@ import {
 	auth0__signup__validate,
 	auth0__token__error__,
 	auth0__token__error__clear,
-	auth0__token__error__logout,
+	auth0__token__error__logout, auth0__token__error_T,
 	auth0__token__json__,
 	password_realm__body_
 } from '@ctx-core/auth0'
@@ -68,9 +68,9 @@ export class Auth0_c {
 			forms__clear__schedule()
 			this.auth0__close()
 		} else {
-			const auth_token_error = auth0_token as Auth0Error
-			this.auth0__token__error_.$ = auth_token_error
-			auth0__token__error__logout(this.ctx, auth_token_error)
+			const auth0__token__error = auth0_token as auth0__token__error_T
+			this.auth0__token__error_.$ = auth0__token__error
+			auth0__token__error__logout(this.ctx, auth0__token__error)
 		}
 	}
 	readonly signup = async (data:auth0__signup_data_T, forms__clear__schedule = ()=>{})=>{
@@ -137,21 +137,21 @@ export class Auth0_c {
 	readonly signup__onsubmit = async (event:Event, ctx:signup__onsubmit__o_T, forms__clear__schedule = ()=>{})=>{
 		event.preventDefault()
 		const {
-			email_input,
-			password_input,
-			password_confirmation_input,
+			email__input,
+			password__input,
+			password_confirmation__input,
 		} = ctx
-		const email = email_input.value
-		const password = password_input.value
-		const password_confirmation = password_confirmation_input.value
-		const auth0_token_error =
+		const email = email__input.value
+		const password = password__input.value
+		const password_confirmation = password_confirmation__input.value
+		const auth0__token__error =
 			auth0__signup__validate({
 				email,
 				password,
 				password_confirmation
 			})
-		if (auth0_token_error) {
-			auth0__token__error__logout(this.ctx, auth0_token_error)
+		if (auth0__token__error) {
+			auth0__token__error__logout(this.ctx, auth0__token__error)
 			return false
 		}
 		await this.signup({
@@ -160,17 +160,19 @@ export class Auth0_c {
 		}, forms__clear__schedule)
 		return
 	}
-	readonly login__onsubmit = async (event:Event, ctx:login__onsubmit__o_T, forms__clear__schedule = ()=>{})=>{
+	readonly login__onsubmit = async (
+		event:Event, ctx:login__onsubmit__o_T, forms__clear__schedule = ()=>{}
+	)=>{
 		event.preventDefault()
-		const { username_login_input, password_login_input } = ctx
-		const username = username_login_input.value
-		const password = password_login_input.value
+		const { username__input, password__input } = ctx
+		const username = username__input.value
+		const password = password__input.value
 		await this.login({ username, password }, forms__clear__schedule)
 	}
 	readonly forgot_password__onsubmit = async (event:Event, ctx:forgot_password__onsubmit__o_T)=>{
 		event.preventDefault()
-		const { email_input } = ctx
-		const email = email_input.value
+		const { email__input } = ctx
+		const email = email__input.value
 		const data:auth0__passwordless_start__fetch__optional_body_T = {
 			connection: 'email',
 			send: 'link',
@@ -191,11 +193,11 @@ export class Auth0_c {
 	)=>{
 		event.preventDefault()
 		const {
-			password_input,
-			password_confirmation_input,
+			password__input,
+			password_confirmation__input,
 		} = ctx
-		const password = password_input.value
-		const password_confirmation = password_confirmation_input.value
+		const password = password__input.value
+		const password_confirmation = password_confirmation__input.value
 		const auth0_token_error =
 			auth0__change_password__validate(
 				{
@@ -234,18 +236,18 @@ export interface login__password_realm__body_T
 		auth0__grant_type__body_T,
 		auth0__oauth_token__fetch__body_T {}
 export interface change_password__onsubmit__o_T {
-	password_input:HTMLInputElement
-	password_confirmation_input:HTMLInputElement
+	password__input:HTMLInputElement
+	password_confirmation__input:HTMLInputElement
 }
 export interface forgot_password__onsubmit__o_T {
-	email_input:HTMLInputElement
+	email__input:HTMLInputElement
 }
 export interface login__onsubmit__o_T {
-	username_login_input:HTMLInputElement
-	password_login_input:HTMLInputElement
+	username__input:HTMLInputElement
+	password__input:HTMLInputElement
 }
 export interface signup__onsubmit__o_T {
-	email_input:HTMLInputElement
-	password_input:HTMLInputElement
-	password_confirmation_input:HTMLInputElement
+	email__input:HTMLInputElement
+	password__input:HTMLInputElement
+	password_confirmation__input:HTMLInputElement
 }

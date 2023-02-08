@@ -11,18 +11,18 @@ const AUTH0_DOMAIN_ = AUTH0_DOMAIN__(ctx)
 const auth0__token__error_ = auth0__token__error__(ctx)
 const _ = new Auth0_c(ctx)
 let root:HTMLDivElement
-let password_input:HTMLInputElement
-let password_confirmation_input
-let password_error:any|undefined //region
-$: password_error = $auth0_token_error_?.password //endregion
-let password_error_confirmation:string|undefined //region
-$: password_error_confirmation = $auth0_token_error_?.password_confirmation //endregion
+let password__input:HTMLInputElement
+let password_confirmation__input
+let password__error:any|undefined //region
+$: password__error = $auth0__token__error_?.password //endregion
+let password_confirmation__error:string|undefined //region
+$: password_confirmation__error = $auth0__token__error_?.password_confirmation //endregion
 async function change_password__onsubmit(event:FormDataEvent) {
 	dispatch('submit__start')
 	try {
 		await _.change_password__onsubmit(event, {
-			password_input,
-			password_confirmation_input,
+			password__input,
+			password_confirmation__input,
 		}, ()=>_.forms__clear__schedule(root))
 		dispatch('success')
 	} catch (error) {
@@ -43,16 +43,16 @@ async function change_password__onsubmit(event:FormDataEvent) {
 		method="post"
 		on:submit|preventDefault={change_password__onsubmit}
 	>
-		{#if $auth0_token_error_}
+		{#if $auth0__token__error_}
 			<ul>
-				{#if password_error}
+				{#if password__error}
 					<li class="error {error_class}">
-						{password_error}
+						{password__error}
 					</li>
 				{/if}
-				{#if password_error_confirmation}
+				{#if password_confirmation__error}
 					<li class="error {error_class}">
-						{password_error_confirmation}
+						{password_confirmation__error}
 					</li>
 				{/if}
 			</ul>
@@ -61,11 +61,11 @@ async function change_password__onsubmit(event:FormDataEvent) {
 		<label class="field">
 			<div class={label_class}>Password</div>
 			<input
-				bind:this={password_input}
+				bind:this={password__input}
 				placeholder="**********"
 				required="required"
 				class={input_class}
-				class:invalid={password_error}
+				class:invalid={password__error}
 				id="password-change_password"
 				type="password"
 				name="password"/>
@@ -73,12 +73,12 @@ async function change_password__onsubmit(event:FormDataEvent) {
 		<label class="field">
 			<div class={label_class}>Confirm Password</div>
 			<input
-				bind:this={password_confirmation_input}
+				bind:this={password_confirmation__input}
 				type="password"
 				id="password_confirmation-change_password"
 				name="password_confirmation"
 				class={input_class}
-				class:invalid={password_error_confirmation}
+				class:invalid={password_confirmation__error}
 				required="required"
 				placeholder="**********"
 			/>

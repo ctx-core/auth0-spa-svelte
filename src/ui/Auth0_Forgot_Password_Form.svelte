@@ -8,8 +8,8 @@ const ctx = auth0__ui__o__getContext()
 const AUTH0_DOMAIN_ = AUTH0_DOMAIN__(ctx)
 const auth0__token__error_ = auth0__token__error__(ctx)
 const _ = new Auth0_c(ctx)
-let email_input:HTMLInputElement, error:typeof $auth0_token_error_?.error
-$: error = $auth0_token_error_?.error
+let email__input:HTMLInputElement, error:typeof $auth0__token__error_.error
+$: error = $auth0__token__error_?.error
 </script>
 
 <div class="form forgot_password">
@@ -19,12 +19,12 @@ $: error = $auth0_token_error_?.error
 		action="https://{$AUTH0_DOMAIN_}/passwordless/start"
 		accept-charset="UTF-8"
 		method="post"
-		on:submit={event => _.forgot_password__onsubmit(event, { email_input })}
+		on:submit={event => _.forgot_password__onsubmit(event, { email__input })}
 	>
-		{#if $auth0_token_error_}
+		{#if $auth0__token__error_}
 			<ul>
 				<li class="error {error_class}">
-					{$auth0_token_error_.error}: {$auth0_token_error_.error_description}
+					{$auth0__token__error_.error}: {$auth0__token__error_.error_description}
 				</li>
 			</ul>
 		{/if}
@@ -32,7 +32,7 @@ $: error = $auth0_token_error_?.error
 			<label class="field">
 				<div class={label_class}>Email</div>
 				<input
-					bind:this={email_input}
+					bind:this={email__input}
 					placeholder="your@email.com"
 					required="required"
 					class="form-control {input_class}"
