@@ -1,8 +1,8 @@
 <script lang="ts">
 import { CloseDialogHandle } from '@ctx-core/dialog-ui-svelte'
-import { auth0__ui__o__getContext } from '../auth0__ui__o__getContext.js'
-import { Auth0_c } from './Auth0_c.js'
-const ctx = auth0__ui__o__getContext()
+import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
+import { Auth0_c } from '../Auth0_c/index.js'
+const ctx = auth0_ui_svelte__getContext()
 const _ = new Auth0_c(ctx)
 </script>
 

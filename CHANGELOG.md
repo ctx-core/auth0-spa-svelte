@@ -1,5 +1,19 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.0
+
+### Minor Changes
+
+- extract _.js, _.svelte, & \*.d.ts into directories
+- - auth0_ui_svelte**ctx**key,auth0_ui_svelte\_\_setContext
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/auth0@35.2.1
+  - @ctx-core/auth0-ui@15.0.0
+
 ## 1.0.0
 
 ### Major Changes

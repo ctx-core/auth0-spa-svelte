@@ -7,9 +7,11 @@ import {
 	AUTH0_DOMAIN__,
 } from '@ctx-core/auth0'
 import { type Ctx } from '@ctx-core/object'
-import { Auth0_c } from './Auth0_c.js'
-import Auth0_Dialog_Close from './Auth0_Dialog_Close.svelte'
+import { Auth0_c } from '../Auth0_c/index.js'
+import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.svelte'
+import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
 export let ctx:Ctx, error_class = '', input_class = '', button_class = '', label_class = '.js'
+$: ctx = ctx || auth0_ui_svelte__getContext()
 const auth0__token__error_ = auth0__token__error__(ctx)
 const auth0__token__error_txt_ = auth0__token__error_txt__(ctx)
 const AUTH0_DOMAIN_ = AUTH0_DOMAIN__(ctx)

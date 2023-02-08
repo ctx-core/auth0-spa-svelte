@@ -1,0 +1,8 @@
+import 'svelte'
+export * as Auth0 from './Auth0/index.svelte'
+export * as Auth0_Dialog_Close from './Auth0_Dialog_Close/index.svelte'
+export * as Auth0_Change_Password_Form from './Auth0_Change_Password_Form/index.svelte'
+export * as Auth0_Forgot_Password_Check_Email_Form from './Auth0_Forgot_Password_Check_Email_Form/index.svelte'
+export * as Auth0_Forgot_Password_Form from './Auth0_Forgot_Password_Form/index.svelte'
+export * as Auth0_Login_Form from './Auth0_Login_Form/index.svelte'
+export * as Auth0_Signup_Form from './Auth0_Signup_Form/index.svelte'
