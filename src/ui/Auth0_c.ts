@@ -35,13 +35,11 @@ export class Auth0_c {
 	constructor(protected ctx:Ctx) {}
 	readonly auth0__login__body_ = (data:any)=>
 		auth0__body_<login__password_realm__body_T>(
-			this.ctx, data
-		)
+			this.ctx, data)
 	readonly auth0__login__password_realm__body_ = (data:any)=>
 		password_realm__body_<login__password_realm__body_T>(
 			this.ctx,
-			this.auth0__login__body_(data)
-		)
+			this.auth0__login__body_(data))
 	readonly auth0__signup__body_ = (data:any)=>
 		auth0__body_<signup__password_realm__body_T>(this.ctx, data) as signup__password_realm__body_T
 	readonly auth0__signup__password_realm__body_ = (data:any)=>
@@ -183,8 +181,7 @@ export class Auth0_c {
 			return
 		}
 		await auth0__passwordless_start__fetch_post(
-			this.ctx, this.auth0__login__body_(data) as auth0__passwordless_start__fetch__body_T
-		)
+			this.ctx, this.auth0__login__body_(data) as auth0__passwordless_start__fetch__body_T)
 		auth0__forgot_password__check_email__open(this.ctx)
 	}
 	readonly change_password__onsubmit = async (
