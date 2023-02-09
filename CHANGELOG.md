@@ -1,5 +1,19 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.3
+
+### Patch Changes
+
+- Auth0_c: fix: jsdoc types
+- signup**password_realm**body_T,login**password_realm**body_T: union type instead of interface
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/auth0@35.3.0
+
 ## 1.1.2
 
 ### Patch Changes

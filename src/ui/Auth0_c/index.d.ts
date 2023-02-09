@@ -21,9 +21,7 @@ export declare class Auth0_c {
 	readonly onMount:(root:HTMLElement)=>Promise<void>
 	readonly login:(data:auth0__login_data_T, forms__clear__schedule?:()=>void)=>Promise<void>
 	readonly signup:(data:auth0__signup_data_T, forms__clear__schedule?:()=>void)=>Promise<void>
-	readonly change_password:(form:{
-		password:string;
-	}, forms__clear__schedule?:()=>void)=>Promise<void>
+	readonly change_password:(form:{ password:string }, forms__clear__schedule?:()=>void)=>Promise<void>
 	readonly forms__clear__schedule_:(root:HTMLElement)=>void
 	readonly forms__clear__schedule:(root:HTMLElement)=>void
 	readonly signup__onsubmit:(event:Event, ctx:signup__onsubmit__o_T, forms__clear__schedule?:()=>void)=>Promise<false|undefined>
@@ -32,10 +30,20 @@ export declare class Auth0_c {
 	readonly change_password__onsubmit:(event:Event, ctx:change_password__onsubmit__o_T, forms__clear__schedule?:typeof noop)=>Promise<void>
 	readonly onclose:(event:MouseEvent)=>Promise<void>
 }
-export interface signup__password_realm__body_T extends auth0__signup_data_T, auth0__client_id__body_T, auth0__passwordless_start__fetch__body_T, password_realm__body_T, auth0__grant_type__body_T, auth0__oauth_token__fetch__body_T {
-}
-export interface login__password_realm__body_T extends auth0__login_data_T, auth0__client_id__body_T, auth0__passwordless_start__fetch__body_T, password_realm__body_T, auth0__grant_type__body_T, auth0__oauth_token__fetch__body_T {
-}
+export type signup__password_realm__body_T =
+	auth0__signup_data_T
+	|auth0__client_id__body_T
+	|auth0__passwordless_start__fetch__body_T
+	|password_realm__body_T
+	|auth0__grant_type__body_T
+	|auth0__oauth_token__fetch__body_T
+export type login__password_realm__body_T =
+	auth0__login_data_T
+	|auth0__client_id__body_T
+	|auth0__passwordless_start__fetch__body_T
+	|password_realm__body_T
+	|auth0__grant_type__body_T
+	|auth0__oauth_token__fetch__body_T
 export interface change_password__onsubmit__o_T {
 	password__input:HTMLInputElement;
 	password_confirmation__input:HTMLInputElement;
