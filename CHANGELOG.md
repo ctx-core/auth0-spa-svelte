@@ -1,5 +1,11 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.2
+
+### Patch Changes
+
+- fix: ∋ svelte,Auth0_c: types
+
 ## 1.1.1
 
 ### Patch Changes

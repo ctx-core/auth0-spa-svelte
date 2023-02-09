@@ -20,6 +20,8 @@ import {
 import { dom_a_, has_dom } from '@ctx-core/dom'
 import { noop } from '@ctx-core/function'
 import { onDestroy } from 'svelte'
+/** @typedef {import('@ctx-core/auth0').auth0__client_id__body_T}auth0__client_id__body_T */
+/** @typedef {import('@ctx-core/auth0').auth0__login_data_T}auth0__login_data_T */
 export class Auth0_c {
 	constructor(ctx) {
 		this.ctx = ctx
@@ -32,8 +34,15 @@ export class Auth0_c {
 				onDestroy(unsubscribe)
 			}
 		}
+		/**
+		 * @param data{auth0__login_data_T}
+		 * @param forms__clear__schedule{()=>void}
+		 * @return {Promise<void>}
+		 */
 		this.login = async (data, forms__clear__schedule = ()=>{})=>{
-			const body = password_realm__body_(this.ctx, auth0__body_(this.ctx, data))
+			/** @type {auth0__login_data_T} */
+			const body = password_realm__body_(
+				this.ctx, auth0__body_(this.ctx, data))
 			const [auth0_token, response] =
 				await auth0__oauth_token__fetch_post(this.ctx, body)
 			if (response.ok) {
@@ -133,10 +142,7 @@ export class Auth0_c {
 			const { username__input, password__input } = ctx
 			const username = username__input.value
 			const password = password__input.value
-			await this.login({
-				username,
-				password
-			}, forms__clear__schedule)
+			await this.login({ username, password }, forms__clear__schedule)
 		}
 		this.forgot_password__onsubmit = async (event, ctx)=>{
 			event.preventDefault()
