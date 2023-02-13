@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import {
 	auth0__change_password__opened__,
 	auth0__forgot_password__check_email__opened__,

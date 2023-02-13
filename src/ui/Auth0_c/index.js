@@ -24,6 +24,10 @@ import { onDestroy } from 'svelte'
 /** @typedef {import('@ctx-core/auth0').auth0__client_id__body_T}auth0__client_id__body_T */
 /** @typedef {import('@ctx-core/auth0').auth0__login_data_T}auth0__login_data_T */
 /** @typedef {import('@ctx-core/auth0').auth0__signup_data_T}auth0__signup_data_T */
+/** @typedef {import('./index.d.ts').change_password__onsubmit__o_T}change_password__onsubmit__o_T */
+/** @typedef {import('./index.d.ts').forgot_password__onsubmit__o_T}forgot_password__onsubmit__o_T */
+/** @typedef {import('./index.d.ts').login__onsubmit__o_T}login__onsubmit__o_T */
+/** @typedef {import('./index.d.ts').signup__onsubmit__o_T}signup__onsubmit__o_T */
 export class Auth0_c {
 	/**
 	 * @param ctx{Ctx}
@@ -148,13 +152,15 @@ export class Auth0_c {
 		}
 		/**
 		 * @param event{Event}
-		 * @param ctx
+		 * @param params{signup__onsubmit__o_T}
 		 * @param forms__clear__schedule
 		 * @return {Promise<boolean>}
 		 */
-		this.signup__onsubmit = async (event, ctx, forms__clear__schedule = ()=>{})=>{
+		this.signup__onsubmit = async (
+			event, params, forms__clear__schedule = ()=>{}
+		)=>{
 			event.preventDefault()
-			const { email__input, password__input, password_confirmation__input } = ctx
+			const { email__input, password__input, password_confirmation__input } = params
 			const email = email__input.value
 			const password = password__input.value
 			const password_confirmation = password_confirmation__input.value
@@ -175,25 +181,27 @@ export class Auth0_c {
 		}
 		/**
 		 * @param event{Event}
-		 * @param ctx{Ctx}
+		 * @param params{login__onsubmit__o_T}
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
 		 */
-		this.login__onsubmit = async (event, ctx, forms__clear__schedule = ()=>{})=>{
+		this.login__onsubmit = async (
+			event, params, forms__clear__schedule = ()=>{}
+		)=>{
 			event.preventDefault()
-			const { username__input, password__input } = ctx
+			const { username__input, password__input } = params
 			const username = username__input.value
 			const password = password__input.value
 			await this.login({ username, password }, forms__clear__schedule)
 		}
 		/**
 		 * @param event{Event}
-		 * @param ctx{Ctx}
+		 * @param params{forgot_password__onsubmit__o_T}
 		 * @return {Promise<void>}
 		 */
-		this.forgot_password__onsubmit = async (event, ctx)=>{
+		this.forgot_password__onsubmit = async (event, params)=>{
 			event.preventDefault()
-			const { email__input } = ctx
+			const { email__input } = params
 			const email = email__input.value
 			const data = {
 				connection: 'email',
@@ -210,13 +218,15 @@ export class Auth0_c {
 		}
 		/**
 		 * @param event{Event}
-		 * @param ctx{Ctx}
+		 * @param params{change_password__onsubmit__o_T}
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
 		 */
-		this.change_password__onsubmit = async (event, ctx, forms__clear__schedule = noop)=>{
+		this.change_password__onsubmit = async (
+			event, params, forms__clear__schedule = noop
+		)=>{
 			event.preventDefault()
-			const { password__input, password_confirmation__input } = ctx
+			const { password__input, password_confirmation__input } = params
 			const password = password__input.value
 			const password_confirmation = password_confirmation__input.value
 			const auth0_token_error = auth0__change_password__validate({

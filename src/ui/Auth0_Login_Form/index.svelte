@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import {
 	auth0__forgot_password__open,
 	auth0__signup__open,
@@ -6,22 +6,28 @@ import {
 	auth0__token__error_txt__,
 	AUTH0_DOMAIN__,
 } from '@ctx-core/auth0'
-import { type Ctx } from '@ctx-core/object'
 import { Auth0_c } from '../Auth0_c/index.js'
-import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.svelte'
+import { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
 import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
-export let ctx:Ctx, error_class = '', input_class = '', button_class = '', label_class = '.js'
+/** @type {import('@ctx-core/object').Ctx} */
+export let ctx
+export let error_class = ''
+export let input_class = ''
+export let button_class = ''
+export let label_class = '.js'
 $: ctx = ctx || auth0_ui_svelte__getContext()
 const auth0__token__error_ = auth0__token__error__(ctx)
 const auth0__token__error_txt_ = auth0__token__error_txt__(ctx)
 const AUTH0_DOMAIN_ = AUTH0_DOMAIN__(ctx)
 const _ = new Auth0_c(ctx)
-let root:HTMLDivElement
-let username__input:HTMLInputElement, password__input:HTMLInputElement
-let username__error:string|undefined//region
-$: username__error = $auth0__token__error_?.username //endregion
-let password__error:string|undefined//region
-$: password__error = $auth0__token__error_?.password //endregion
+let root: HTMLDivElement
+let username__input: HTMLInputElement, password__input: HTMLInputElement
+/** @type {string} */
+let username__error
+$: username__error = $auth0__token__error_?.username
+/** @type {string} */
+let password__error
+$: password__error = $auth0__token__error_?.password
 </script>
 
 <div bind:this={root} class="form {$$props.class||''}">

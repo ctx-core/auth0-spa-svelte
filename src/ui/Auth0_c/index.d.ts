@@ -24,10 +24,14 @@ export declare class Auth0_c {
 	readonly change_password:(form:{ password:string }, forms__clear__schedule?:()=>void)=>Promise<void>
 	readonly forms__clear__schedule_:(root:HTMLElement)=>void
 	readonly forms__clear__schedule:(root:HTMLElement)=>void
-	readonly signup__onsubmit:(event:Event, ctx:signup__onsubmit__o_T, forms__clear__schedule?:()=>void)=>Promise<false|undefined>
-	readonly login__onsubmit:(event:Event, ctx:login__onsubmit__o_T, forms__clear__schedule?:()=>void)=>Promise<void>
-	readonly forgot_password__onsubmit:(event:Event, ctx:forgot_password__onsubmit__o_T)=>Promise<void>
-	readonly change_password__onsubmit:(event:Event, ctx:change_password__onsubmit__o_T, forms__clear__schedule?:typeof noop)=>Promise<void>
+	readonly signup__onsubmit:(
+		event:Event, params:signup__onsubmit__o_T, forms__clear__schedule?:()=>void
+	)=>Promise<false|undefined>
+	readonly login__onsubmit:(
+		event:Event, params:login__onsubmit__o_T, forms__clear__schedule?:()=>void
+	)=>Promise<void>
+	readonly forgot_password__onsubmit:(event:Event, params:forgot_password__onsubmit__o_T)=>Promise<void>
+	readonly change_password__onsubmit:(event:Event, params:change_password__onsubmit__o_T, forms__clear__schedule?:typeof noop)=>Promise<void>
 	readonly onclose:(event:MouseEvent)=>Promise<void>
 }
 export type signup__password_realm__body_T =

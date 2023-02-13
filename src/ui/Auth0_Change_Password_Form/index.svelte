@@ -1,9 +1,9 @@
-<script lang="ts">
+<script>
 import { createEventDispatcher } from 'svelte'
-import { AUTH0_DOMAIN__, auth0__token__error__ } from '@ctx-core/auth0'
-import { auth0_ui_svelte__getContext } from '../auth0_ui_svelte__getContext.js'
-import { Auth0_c } from './Auth0_c.js'
-import Auth0_Dialog_Close from './Auth0_Dialog_Close.svelte'
+import { auth0__token__error__, AUTH0_DOMAIN__ } from '@ctx-core/auth0'
+import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
+import { Auth0_c } from '../Auth0_c/index.js'
+import { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
 const ctx = auth0_ui_svelte__getContext()
 const dispatch = createEventDispatcher()
 export let error_class = '', input_class = '', button_class = '', label_class = '.js'
@@ -13,23 +13,24 @@ const _ = new Auth0_c(ctx)
 let root:HTMLDivElement
 let password__input:HTMLInputElement
 let password_confirmation__input
-let password__error:any|undefined //region
-$: password__error = $auth0__token__error_?.password //endregion
-let password_confirmation__error:string|undefined //region
-$: password_confirmation__error = $auth0__token__error_?.password_confirmation //endregion
+let password__error
+$: password__error = $auth0__token__error_?.password
+/** @type {string} */
+let password_confirmation__error
+$: password_confirmation__error = $auth0__token__error_?.password_confirmation
 async function change_password__onsubmit(event:FormDataEvent) {
-	dispatch('submit__start')
+	dispatch(/** @type {any} */'submit__start')
 	try {
 		await _.change_password__onsubmit(event, {
 			password__input,
 			password_confirmation__input,
 		}, ()=>_.forms__clear__schedule(root))
-		dispatch('success')
+		dispatch(/** @type {any} */'success')
 	} catch (error) {
-		dispatch('error', { error })
+		dispatch(/** @type {any} */'error', { error })
 		throw error
 	} finally {
-		dispatch('submit__end')
+		dispatch(/** @type {any} */'submit__end')
 	}
 }
 </script>

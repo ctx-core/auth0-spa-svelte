@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import {
 	auth0__forgot_password__open,
 	auth0__login__open,
@@ -15,13 +15,17 @@ const auth0__token__error_ = auth0__token__error__(ctx)
 const _ = new Auth0_c(ctx)
 let root:HTMLDivElement
 let email__input:HTMLInputElement, password__input:HTMLInputElement, password_confirmation__input:HTMLInputElement
-let username__error:string|undefined //region
-$: username__error = $auth0__token__error_?.username //endregion
-let password__error:string|undefined //region
-$: password__error = $auth0__token__error_?.password //endregion
-let password_confirmation__has_error:boolean //region
-$: password_confirmation__has_error = !!$auth0__token__error_ //endregion
-let error_text:string
+/** @type {string} */
+let username__error
+$: username__error = $auth0__token__error_?.username
+/** @type {string} */
+let password__error
+$: password__error = $auth0__token__error_?.password
+/** @type {boolean} */
+let password_confirmation__has_error
+$: password_confirmation__has_error = !!$auth0__token__error_
+/** @type {string} */
+let error_text
 $: {
 	let error_text_a = []
 	if ($auth0__token__error_) {
