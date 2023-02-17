@@ -1,5 +1,14 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.34
+
+### Patch Changes
+
+- variable names: auth0_token=>auth0\_\_token
+- Updated dependencies
+  - @ctx-core/auth0@35.6.1
+  - @ctx-core/auth0-ui@15.0.1
+
 ## 1.1.33
 
 ### Patch Changes

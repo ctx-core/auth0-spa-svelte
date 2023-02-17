@@ -57,15 +57,15 @@ export class Auth0_c {
 			/** @type {auth0__login_data_T} */
 			const body = password_realm__body_(
 				this.ctx, auth0__body_(this.ctx, data))
-			const [auth0_token, response] =
+			const [auth0__token, response] =
 				await auth0__oauth_token__fetch_post(this.ctx, body)
 			if (response.ok) {
-				const auth0__token__json = JSON.stringify(auth0_token)
+				const auth0__token__json = JSON.stringify(auth0__token)
 				this.auth0__token__json_.$ = auth0__token__json
 				forms__clear__schedule()
 				auth0__close(this.ctx)
 			} else {
-				const auth0__token__error = auth0_token
+				const auth0__token__error = auth0__token
 				this.auth0__token__error_.$ = auth0__token__error
 				auth0__token__error__logout(this.ctx, auth0__token__error)
 			}
