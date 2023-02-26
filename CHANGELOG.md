@@ -1,5 +1,16 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.89
+
+### Patch Changes
+
+- import*meta_env*() instead of process.env
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/auth0@37.0.0
+
 ## 1.1.88
 
 ### Patch Changes

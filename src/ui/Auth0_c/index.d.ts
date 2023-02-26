@@ -3,7 +3,7 @@ import type {
 	auth0__grant_type__body_T,
 	auth0__login_data_T,
 	auth0__oauth_token__fetch__body_T,
-	auth0__passwordless_start__fetch__body_T,
+	auth0__passwordless_start__fetch_post__body_T,
 	auth0__signup_data_T,
 	auth0__token__error_T,
 	auth0_opened_T,
@@ -37,14 +37,14 @@ export declare class Auth0_c {
 export type signup__password_realm__body_T =
 	auth0__signup_data_T
 	|auth0__client_id__body_T
-	|auth0__passwordless_start__fetch__body_T
+	|auth0__passwordless_start__fetch_post__body_T
 	|password_realm__body_T
 	|auth0__grant_type__body_T
 	|auth0__oauth_token__fetch__body_T
 export type login__password_realm__body_T =
 	auth0__login_data_T
 	|auth0__client_id__body_T
-	|auth0__passwordless_start__fetch__body_T
+	|auth0__passwordless_start__fetch_post__body_T
 	|password_realm__body_T
 	|auth0__grant_type__body_T
 	|auth0__oauth_token__fetch__body_T
