@@ -236,6 +236,7 @@ export class Auth0_c {
 			if (auth0_token_error) {
 				auth0__token__error__logout(this.ctx, auth0_token_error)
 				throw auth0_token_error
+				throw auth0_token_error
 			}
 			return await this.change_password({
 				password
