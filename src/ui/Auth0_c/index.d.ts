@@ -6,7 +6,7 @@ import type {
 	auth0__passwordless_start__fetch_post__body_T,
 	auth0__signup_data_T,
 	auth0__token__error_T,
-	auth0_opened_T,
+	auth0__opened_T,
 	password_realm__body_T
 } from '@ctx-core/auth0'
 import type { noop, nullish } from '@ctx-core/function'
@@ -15,7 +15,7 @@ import type { Ctx } from '@ctx-core/object'
 export declare class Auth0_c {
 	protected ctx:Ctx
 	constructor(ctx:Ctx);
-	readonly auth0__opened__class_:ReadableAtom_<auth0_opened_T>
+	readonly auth0__opened__class_:ReadableAtom_<auth0__opened_T>
 	readonly auth0__token__json_:WritableAtom_<string|nullish>
 	readonly auth0__token__error_:WritableAtom_<auth0__token__error_T>
 	readonly onMount:(root:HTMLElement)=>Promise<void>
