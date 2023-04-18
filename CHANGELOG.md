@@ -1,5 +1,31 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.236
+
+### Patch Changes
+
+- @ctx-core/git-tools: ^7.0.58 -> ^7.0.59
+- @ctx-core/queue: ^7.5.15 -> ^7.5.16
+- @ctx-core/build: 1.0.296 -> 1.0.297
+- @ctx-core/monorepo: ^20.2.2 -> ^20.2.3
+- @ctx-core/ctx-core-package-tools: ^8.0.188 -> ^8.0.189
+- @ctx-core/dev-tools: 8.1.108 -> 8.1.109
+- @ctx-core/function: ^21.17.13 -> ^21.17.14
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/auth0@38.0.55
+  - @ctx-core/auth0-ui@15.0.17
+  - @ctx-core/dialog-ui-svelte@1.1.20
+  - @ctx-core/dom@14.1.27
+  - @ctx-core/function@21.17.15
+  - @ctx-core/nanostores@3.2.18
+  - @ctx-core/object@27.4.19
+
 ## 1.1.235
 
 ### Patch Changes
