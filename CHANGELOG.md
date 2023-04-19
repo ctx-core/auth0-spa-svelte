@@ -1,5 +1,19 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.240
+
+### Patch Changes
+
+- @ctx-core/monorepo: ^20.3.3 -> ^20.3.4
+- Updated dependencies
+  - @ctx-core/auth0@38.0.59
+  - @ctx-core/auth0-ui@15.0.21
+  - @ctx-core/dialog-ui-svelte@1.1.24
+  - @ctx-core/dom@14.1.31
+  - @ctx-core/function@21.17.19
+  - @ctx-core/nanostores@3.2.22
+  - @ctx-core/object@27.4.23
+
 ## 1.1.239
 
 ### Patch Changes
