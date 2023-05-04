@@ -1,15 +1,15 @@
 import {
 	auth0__body_,
-	auth0__change_password__fetch_post,
+	auth0__change_password__POST__fetch2,
 	auth0__change_password__validate,
 	auth0__close,
-	auth0__dbconnections_signup__fetch_get,
+	auth0__dbconnections_signup__GET__fetch,
 	auth0__forgot_password__check_email__open,
 	auth0__forgot_password__validate,
 	auth0__login__open,
-	auth0__oauth_token__fetch_post,
+	auth0__oauth_token__POST__fetch2,
 	auth0__opened__class__,
-	auth0__passwordless_start__fetch_post,
+	auth0__passwordless_start__POST__fetch2,
 	auth0__signup__validate,
 	auth0__token__error__,
 	auth0__token__error__clear,
@@ -58,7 +58,7 @@ export class Auth0_c {
 			const body = password_realm__body_(
 				this.ctx, auth0__body_(this.ctx, data))
 			const [auth0__token, response] =
-				await auth0__oauth_token__fetch_post(this.ctx, body)
+				await auth0__oauth_token__POST__fetch2(this.ctx, body)
 			if (response.ok) {
 				const auth0__token__json = JSON.stringify(auth0__token)
 				this.auth0__token__json_.$ = auth0__token__json
@@ -79,7 +79,7 @@ export class Auth0_c {
 			/** @type {auth0__signup_data_T} */
 			const body = password_realm__body_(this.ctx, auth0__body_(this.ctx, data))
 			const [auth0_userinfo] =
-				await auth0__dbconnections_signup__fetch_get(this.ctx, body)
+				await auth0__dbconnections_signup__GET__fetch(this.ctx, body)
 			const auth0_userinfo_Auth0Error = auth0_userinfo
 			const { statusCode } = auth0_userinfo_Auth0Error
 			if (statusCode) {
@@ -106,7 +106,7 @@ export class Auth0_c {
 			const { password } = form
 			let error
 			try {
-				const [response_json, response] = await auth0__change_password__fetch_post(this.ctx, password)
+				const [response_json, response] = await auth0__change_password__POST__fetch2(this.ctx, password)
 				if (!response.ok) {
 					if (response.status == 401) {
 						auth0__login__open(this.ctx)
@@ -213,7 +213,7 @@ export class Auth0_c {
 				auth0__token__error__logout(this.ctx, auth0_token_error)
 				return
 			}
-			await auth0__passwordless_start__fetch_post(this.ctx, auth0__body_(this.ctx, data))
+			await auth0__passwordless_start__POST__fetch2(this.ctx, auth0__body_(this.ctx, data))
 			auth0__forgot_password__check_email__open(this.ctx)
 		}
 		/**
