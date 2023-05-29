@@ -1,5 +1,13 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.287
+
+### Patch Changes
+
+- remove extra space from import type
+- Updated dependencies
+  - @ctx-core/nanostores@4.0.6
+
 ## 1.1.286
 
 ### Patch Changes
