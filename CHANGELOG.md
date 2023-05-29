@@ -1,5 +1,15 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.289
+
+### Patch Changes
+
+- @ctx-core/object: ^27.4.26 -> ^27.5.0
+- Updated dependencies
+  - @ctx-core/auth0@38.2.25
+  - @ctx-core/dom@14.1.39
+  - @ctx-core/nanostores@4.0.7
+
 ## 1.1.288
 
 ### Patch Changes
