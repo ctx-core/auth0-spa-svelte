@@ -1,5 +1,11 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.293
+
+### Patch Changes
+
+- subscribe_wait: fix: ReferenceError
+
 ## 1.1.292
 
 ### Patch Changes
