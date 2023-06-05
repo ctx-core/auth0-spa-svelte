@@ -1,11 +1,11 @@
 <script>
 import {
-	auth0__change_password__opened__,
-	auth0__forgot_password__check_email__opened__,
-	auth0__forgot_password__opened__,
-	auth0__login__opened__,
-	auth0__opened__class__,
-	auth0__signup__opened__,
+	auth0__change_password__opened$_,
+	auth0__forgot_password__check_email__opened$_,
+	auth0__forgot_password__opened$_,
+	auth0__login__opened$_,
+	auth0__opened__class$_,
+	auth0__signup__opened$_,
 } from '@ctx-core/auth0'
 import { ctx_ } from '@ctx-core/object'
 import { Auth0_c } from '../Auth0_c/index.js'
@@ -18,12 +18,12 @@ import Auth0_Signup_Form from '../Auth0_Signup_Form/index.svelte'
 import { auth0_ui_svelte__setContext } from '../../auth0_ui_svelte__ctx/index.js'
 export let ctx = ctx_(), dialog = false
 auth0_ui_svelte__setContext(ctx)
-const auth0__change_password__opened_ = auth0__change_password__opened__(ctx)
-const auth0__opened__class_ = auth0__opened__class__(ctx)
-const auth0__forgot_password__check_email__opened_ = auth0__forgot_password__check_email__opened__(ctx)
-const auth0__forgot_password__opened_ = auth0__forgot_password__opened__(ctx)
-const auth0__login__opened_ = auth0__login__opened__(ctx)
-const auth0__signup__opened_ = auth0__signup__opened__(ctx)
+const auth0__change_password__opened_ = auth0__change_password__opened$_(ctx)
+const auth0__opened__class_ = auth0__opened__class$_(ctx)
+const auth0__forgot_password__check_email__opened_ = auth0__forgot_password__check_email__opened$_(ctx)
+const auth0__forgot_password__opened_ = auth0__forgot_password__opened$_(ctx)
+const auth0__login__opened_ = auth0__login__opened$_(ctx)
+const auth0__signup__opened_ = auth0__signup__opened$_(ctx)
 const _ = new Auth0_c(ctx)
 </script>
 

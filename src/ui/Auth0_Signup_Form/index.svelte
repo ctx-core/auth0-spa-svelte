@@ -2,16 +2,16 @@
 import {
 	auth0__forgot_password__open,
 	auth0__login__open,
-	auth0__token__error__,
-	AUTH0_DOMAIN__,
+	auth0__token__error$_,
+	AUTH0_DOMAIN$_,
 } from '@ctx-core/auth0'
 import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
 import { Auth0_c } from '../Auth0_c/index.js'
 import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.svelte'
 export let ctx, error_class = '', input_class = '', button_class = '', label_class = '.js'
 $: ctx = ctx || auth0_ui_svelte__getContext()
-const AUTH0_DOMAIN_ = AUTH0_DOMAIN__(ctx)
-const auth0__token__error_ = auth0__token__error__(ctx)
+const AUTH0_DOMAIN_ = AUTH0_DOMAIN$_(ctx)
+const auth0__token__error_ = auth0__token__error$_(ctx)
 const _ = new Auth0_c(ctx)
 let root:HTMLDivElement
 let email__input:HTMLInputElement, password__input:HTMLInputElement, password_confirmation__input:HTMLInputElement

@@ -8,13 +8,13 @@ import {
 	auth0__forgot_password__validate,
 	auth0__login__open,
 	auth0__oauth_token__POST__fetch2,
-	auth0__opened__class__,
+	auth0__opened__class$_,
 	auth0__passwordless_start__POST__fetch2,
 	auth0__signup__validate,
-	auth0__token__error__,
+	auth0__token__error$_,
 	auth0__token__error__clear,
 	auth0__token__error__logout,
-	auth0__token__json__,
+	auth0__token__json$_,
 	password_realm__body_
 } from '@ctx-core/auth0'
 import { dom_a_, has_dom } from '@ctx-core/dom'
@@ -34,9 +34,9 @@ export class Auth0_c {
 	 */
 	constructor(ctx) {
 		this.ctx = ctx
-		this.auth0__opened__class_ = auth0__opened__class__(this.ctx)
-		this.auth0__token__json_ = auth0__token__json__(this.ctx)
-		this.auth0__token__error_ = auth0__token__error__(this.ctx)
+		this.auth0__opened__class_ = auth0__opened__class$_(this.ctx)
+		this.auth0__token__json_ = auth0__token__json$_(this.ctx)
+		this.auth0__token__error_ = auth0__token__error$_(this.ctx)
 		/**
 		 * @param root{HTMLElement}
 		 * @return {Promise<void>}
