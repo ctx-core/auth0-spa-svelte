@@ -11,10 +11,10 @@ import {
 	auth0__opened__class$_,
 	auth0__passwordless_start__POST__fetch2,
 	auth0__signup__validate,
-	auth0__token__error$_,
 	auth0__token__error__clear,
 	auth0__token__error__logout,
-	auth0__token__json$_,
+	auth0__token__error__set,
+	auth0__token__json__set,
 	password_realm__body_
 } from '@ctx-core/auth0'
 import { dom_a_, has_dom } from '@ctx-core/dom'
@@ -34,9 +34,6 @@ export class Auth0_c {
 	 */
 	constructor(ctx) {
 		this.ctx = ctx
-		this.auth0__opened__class_ = auth0__opened__class$_(this.ctx)
-		this.auth0__token__json_ = auth0__token__json$_(this.ctx)
-		this.auth0__token__error_ = auth0__token__error$_(this.ctx)
 		/**
 		 * @param root{HTMLElement}
 		 * @return {Promise<void>}
@@ -44,7 +41,8 @@ export class Auth0_c {
 		this.onMount = async (root)=>{
 			if (has_dom) {
 				const unsubscribe =
-					this.auth0__opened__class_.subscribe(()=>this.forms__clear__schedule(root))
+					auth0__opened__class$_(ctx).subscribe(()=>
+						this.forms__clear__schedule(root))
 				onDestroy(unsubscribe)
 			}
 		}
@@ -61,12 +59,12 @@ export class Auth0_c {
 				await auth0__oauth_token__POST__fetch2(this.ctx, body)
 			if (response.ok) {
 				const auth0__token__json = JSON.stringify(auth0__token)
-				this.auth0__token__json_.$ = auth0__token__json
+				auth0__token__json__set(ctx, auth0__token__json)
 				forms__clear__schedule()
 				auth0__close(this.ctx)
 			} else {
 				const auth0__token__error = auth0__token
-				this.auth0__token__error_.$ = auth0__token__error
+				auth0__token__error__set(ctx, auth0__token__error)
 				auth0__token__error__logout(this.ctx, auth0__token__error)
 			}
 		}
@@ -75,19 +73,24 @@ export class Auth0_c {
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
 		 */
-		this.signup = async (data, forms__clear__schedule = ()=>{})=>{
+		this.signup = async (
+			data,
+			forms__clear__schedule = ()=>{}
+		)=>{
 			/** @type {auth0__signup_data_T} */
-			const body = password_realm__body_(this.ctx, auth0__body_(this.ctx, data))
+			const body =
+				password_realm__body_(this.ctx, auth0__body_(this.ctx, data))
 			const [auth0_userinfo] =
 				await auth0__dbconnections_signup__GET__fetch(this.ctx, body)
 			const auth0_userinfo_Auth0Error = auth0_userinfo
 			const { statusCode } = auth0_userinfo_Auth0Error
 			if (statusCode) {
 				const { code, description } = auth0_userinfo_Auth0Error
-				const email = code === 'user_exists' ? 'This Email is already signed up' : description || ''
-				const auth0_token_error = {
-					email
-				}
+				const email =
+					code === 'user_exists'
+					? 'This Email is already signed up'
+					: description || ''
+				const auth0_token_error = { email }
 				auth0__token__error__logout(this.ctx, auth0_token_error)
 				return
 			}
@@ -102,11 +105,17 @@ export class Auth0_c {
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
 		 */
-		this.change_password = async (form, forms__clear__schedule = ()=>{})=>{
+		this.change_password = async (
+			form,
+			forms__clear__schedule = ()=>{}
+		)=>{
 			const { password } = form
 			let error
 			try {
-				const [response_json, response] = await auth0__change_password__POST__fetch2(this.ctx, password)
+				const [
+					response_json,
+					response
+				] = await auth0__change_password__POST__fetch2(this.ctx, password)
 				if (!response.ok) {
 					if (response.status == 401) {
 						auth0__login__open(this.ctx)
@@ -160,15 +169,20 @@ export class Auth0_c {
 			event, params, forms__clear__schedule = ()=>{}
 		)=>{
 			event.preventDefault()
-			const { email__input, password__input, password_confirmation__input } = params
+			const {
+				email__input,
+				password__input,
+				password_confirmation__input
+			} = params
 			const email = email__input.value
 			const password = password__input.value
 			const password_confirmation = password_confirmation__input.value
-			const auth0__token__error = auth0__signup__validate({
-				email,
-				password,
-				password_confirmation
-			})
+			const auth0__token__error =
+				auth0__signup__validate({
+					email,
+					password,
+					password_confirmation
+				})
 			if (auth0__token__error) {
 				auth0__token__error__logout(this.ctx, auth0__token__error)
 				return false
@@ -186,10 +200,15 @@ export class Auth0_c {
 		 * @return {Promise<void>}
 		 */
 		this.login__onsubmit = async (
-			event, params, forms__clear__schedule = ()=>{}
+			event,
+			params,
+			forms__clear__schedule = ()=>{}
 		)=>{
 			event.preventDefault()
-			const { username__input, password__input } = params
+			const {
+				username__input,
+				password__input
+			} = params
 			const username = username__input.value
 			const password = password__input.value
 			await this.login({ username, password }, forms__clear__schedule)
@@ -199,7 +218,10 @@ export class Auth0_c {
 		 * @param params{forgot_password__onsubmit__o_T}
 		 * @return {Promise<void>}
 		 */
-		this.forgot_password__onsubmit = async (event, params)=>{
+		this.forgot_password__onsubmit = async (
+			event,
+			params
+		)=>{
 			event.preventDefault()
 			const { email__input } = params
 			const email = email__input.value
@@ -213,7 +235,9 @@ export class Auth0_c {
 				auth0__token__error__logout(this.ctx, auth0_token_error)
 				return
 			}
-			await auth0__passwordless_start__POST__fetch2(this.ctx, auth0__body_(this.ctx, data))
+			await auth0__passwordless_start__POST__fetch2(
+				this.ctx,
+				auth0__body_(this.ctx, data))
 			auth0__forgot_password__check_email__open(this.ctx)
 		}
 		/**
