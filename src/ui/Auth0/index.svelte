@@ -7,7 +7,7 @@ import {
 	auth0__opened__class$_,
 	auth0__signup__opened$_,
 } from '@ctx-core/auth0'
-import { ctx_ } from '@ctx-core/object'
+import { ctx__new } from '@ctx-core/object'
 import { Auth0_c } from '../Auth0_c/index.js'
 import Auth0_Change_Password_Form from '../Auth0_Change_Password_Form/index.svelte'
 import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.svelte'
@@ -16,7 +16,7 @@ import Auth0_Forgot_Password_Form from '../Auth0_Forgot_Password_Form/index.svel
 import Auth0_Login_Form from '../Auth0_Login_Form/index.svelte'
 import Auth0_Signup_Form from '../Auth0_Signup_Form/index.svelte'
 import { auth0_ui_svelte__setContext } from '../../auth0_ui_svelte__ctx/index.js'
-export let ctx = ctx_(), dialog = false
+export let ctx = ctx__new(), dialog = false
 auth0_ui_svelte__setContext(ctx)
 const auth0__change_password__opened_ = auth0__change_password__opened$_(ctx)
 const auth0__opened__class_ = auth0__opened__class$_(ctx)
