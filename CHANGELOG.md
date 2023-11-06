@@ -1,5 +1,11 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.1.452
+
+### Patch Changes
+
+- @ctx-core/auth0: ^40.0.83 -> ^40.0.84
+
 ## 1.1.451
 
 ### Patch Changes
