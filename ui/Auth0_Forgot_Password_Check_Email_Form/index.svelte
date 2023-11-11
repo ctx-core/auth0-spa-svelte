@@ -1,5 +1,5 @@
 <script>
-import { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
+	import { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
 </script>
 
 <div class="form forgot_password_check_email">

@@ -3,10 +3,10 @@ import type {
 	auth0__grant_type__body_T,
 	auth0__login_data_T,
 	auth0__oauth_token__fetch__body_T,
+	auth0__opened_T,
 	auth0__passwordless_start__POST__fetch2__body_T,
 	auth0__signup_data_T,
 	auth0__token__error_T,
-	auth0__opened_T,
 	password_realm__body_T
 } from '@ctx-core/auth0'
 import type { noop, nullish } from '@ctx-core/function'
@@ -21,7 +21,9 @@ export declare class Auth0_c {
 	readonly onMount:(root:HTMLElement)=>Promise<void>
 	readonly login:(data:auth0__login_data_T, forms__clear__schedule?:()=>void)=>Promise<void>
 	readonly signup:(data:auth0__signup_data_T, forms__clear__schedule?:()=>void)=>Promise<void>
-	readonly change_password:(form:{ password:string }, forms__clear__schedule?:()=>void)=>Promise<void>
+	readonly change_password:(form:{
+		password:string
+	}, forms__clear__schedule?:()=>void)=>Promise<void>
 	readonly forms__clear__schedule_:(root:HTMLElement)=>void
 	readonly forms__clear__schedule:(root:HTMLElement)=>void
 	readonly signup__onsubmit:(

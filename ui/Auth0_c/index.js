@@ -51,7 +51,8 @@ export class Auth0_c {
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
 		 */
-		this.login = async (data, forms__clear__schedule = ()=>{})=>{
+		this.login = async (data, forms__clear__schedule = ()=>{
+		})=>{
 			/** @type {auth0__login_data_T} */
 			const body = password_realm__body_(
 				this.ctx, auth0__body_(this.ctx, data))
@@ -75,7 +76,8 @@ export class Auth0_c {
 		 */
 		this.signup = async (
 			data,
-			forms__clear__schedule = ()=>{}
+			forms__clear__schedule = ()=>{
+			}
 		)=>{
 			/** @type {auth0__signup_data_T} */
 			const body =
@@ -88,8 +90,8 @@ export class Auth0_c {
 				const { code, description } = auth0_userinfo_Auth0Error
 				const email =
 					code === 'user_exists'
-					? 'This Email is already signed up'
-					: description || ''
+						? 'This Email is already signed up'
+						: description || ''
 				const auth0_token_error = { email }
 				auth0__token__error__logout(this.ctx, auth0_token_error)
 				return
@@ -107,7 +109,8 @@ export class Auth0_c {
 		 */
 		this.change_password = async (
 			form,
-			forms__clear__schedule = ()=>{}
+			forms__clear__schedule = ()=>{
+			}
 		)=>{
 			const { password } = form
 			let error
@@ -166,7 +169,8 @@ export class Auth0_c {
 		 * @return {Promise<boolean>}
 		 */
 		this.signup__onsubmit = async (
-			event, params, forms__clear__schedule = ()=>{}
+			event, params, forms__clear__schedule = ()=>{
+			}
 		)=>{
 			event.preventDefault()
 			const {
@@ -202,7 +206,8 @@ export class Auth0_c {
 		this.login__onsubmit = async (
 			event,
 			params,
-			forms__clear__schedule = ()=>{}
+			forms__clear__schedule = ()=>{
+			}
 		)=>{
 			event.preventDefault()
 			const {

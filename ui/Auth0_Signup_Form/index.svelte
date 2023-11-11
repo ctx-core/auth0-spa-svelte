@@ -1,45 +1,47 @@
 <script>
-import {
-	auth0__forgot_password__open,
-	auth0__login__open,
-	auth0__token__error$_,
-	AUTH0_DOMAIN$_,
-} from '@ctx-core/auth0'
-import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
-import { Auth0_c } from '../Auth0_c/index.js'
-import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.svelte'
-export let ctx, error_class = '', input_class = '', button_class = '', label_class = '.js'
-$: ctx = ctx || auth0_ui_svelte__getContext()
-const AUTH0_DOMAIN_ = AUTH0_DOMAIN$_(ctx)
-const auth0__token__error_ = auth0__token__error$_(ctx)
-const _ = new Auth0_c(ctx)
-let root:HTMLDivElement
-let email__input:HTMLInputElement, password__input:HTMLInputElement, password_confirmation__input:HTMLInputElement
-/** @type {string} */
-let username__error
-$: username__error = $auth0__token__error_?.username
-/** @type {string} */
-let password__error
-$: password__error = $auth0__token__error_?.password
-/** @type {boolean} */
-let password_confirmation__has_error
-$: password_confirmation__has_error = !!$auth0__token__error_
-/** @type {string} */
-let error_text
-$: {
-	let error_text_a = []
-	if ($auth0__token__error_) {
-		for (let key in $auth0__token__error_) {
-			error_text_a.push($auth0__token__error_[key])
+	import {
+		auth0__forgot_password__open,
+		auth0__login__open,
+		auth0__token__error$_,
+		AUTH0_DOMAIN$_,
+	} from '@ctx-core/auth0'
+	import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
+	import { Auth0_c } from '../Auth0_c/index.js'
+	import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.js'
+	export let ctx, error_class = '', input_class = '', button_class = '', label_class = '.js'
+	$: ctx = ctx || auth0_ui_svelte__getContext()
+	const AUTH0_DOMAIN_ = AUTH0_DOMAIN$_(ctx)
+	const auth0__token__error_ = auth0__token__error$_(ctx)
+	const _ = new Auth0_c(ctx)
+	let root:HTMLDivElement
+	let email__input:HTMLInputElement, password__input:HTMLInputElement, password_confirmation__input:HTMLInputElement
+	/** @type {string} */
+	let username__error
+	$: username__error = $auth0__token__error_?.username
+	/** @type {string} */
+	let password__error
+	$: password__error = $auth0__token__error_?.password
+	/** @type {boolean} */
+	let password_confirmation__has_error
+	$: password_confirmation__has_error = !!$auth0__token__error_
+	/** @type {string} */
+	let error_text
+	$: {
+		let error_text_a = []
+		if ($auth0__token__error_) {
+			for (let key in $auth0__token__error_) {
+				error_text_a.push($auth0__token__error_[key])
+			}
 		}
+		error_text = error_text_a.join('<br>') || ''
 	}
-	error_text = error_text_a.join('<br>') || ''
-}
 </script>
 
 <div bind:this={root} class="form signup">
 	<Auth0_Dialog_Close/>
-	<h1><slot name="signup_text">Sign Up</slot></h1>
+	<h1>
+		<slot name="signup_text">Sign Up</slot>
+	</h1>
 	<form
 		action="https://{$AUTH0_DOMAIN_}/dbconnections/signup"
 		accept-charset="UTF-8"
@@ -100,9 +102,9 @@ $: {
 			<slot name="tos__signup">
 				<p>
 					By clicking ‘Sign up’ you agree to the terms of this Website <br>
-					<a href="." target="_blank">Terms of Service</a>
+					<a href="" target="_blank">Terms of Service</a>
 					and
-					<a href="." target="_blank">Privacy Policy</a>
+					<a href="" target="_blank">Privacy Policy</a>
 				</p>
 			</slot>
 		</fieldset>

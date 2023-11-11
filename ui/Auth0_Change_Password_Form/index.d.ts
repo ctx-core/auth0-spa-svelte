@@ -1,6 +1,6 @@
-import type { SvelteComponentTyped } from 'svelte'
 import type { Ctx } from '@ctx-core/object'
-export class Auth0_Change_Password_Form extends SvelteComponentTyped<{
+import type { SvelteComponent } from 'svelte'
+export class Auth0_Change_Password_Form extends SvelteComponent<{
 	ctx?:Ctx
 	error_class?:string
 	input_class?:string
@@ -8,7 +8,10 @@ export class Auth0_Change_Password_Form extends SvelteComponentTyped<{
 	label_class?:string
 }, {
 	success:undefined
-	error:{ error:any }
+	error:{
+		error:any
+	}
 	submit__start:undefined
 	submit__end:undefined
-}> {}
+}> {
+}
