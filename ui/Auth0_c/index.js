@@ -20,14 +20,14 @@ import {
 import { dom_a_, has_dom } from '@ctx-core/dom'
 import { noop } from '@ctx-core/function'
 import { onDestroy } from 'svelte'
-/** @typedef {import('@ctx-core/object').Ctx}Ctx */
-/** @typedef {import('@ctx-core/auth0').auth0__client_id__body_T}auth0__client_id__body_T */
-/** @typedef {import('@ctx-core/auth0').auth0__login_data_T}auth0__login_data_T */
-/** @typedef {import('@ctx-core/auth0').auth0__signup_data_T}auth0__signup_data_T */
-/** @typedef {import('./index.d.ts').change_password__onsubmit__o_T}change_password__onsubmit__o_T */
-/** @typedef {import('./index.d.ts').forgot_password__onsubmit__o_T}forgot_password__onsubmit__o_T */
-/** @typedef {import('./index.d.ts').login__onsubmit__o_T}login__onsubmit__o_T */
-/** @typedef {import('./index.d.ts').signup__onsubmit__o_T}signup__onsubmit__o_T */
+/** @typedef {import('@ctx-core/object').Ctx} */
+/** @typedef {import('@ctx-core/auth0').auth0__client_id__body_T} */
+/** @typedef {import('@ctx-core/auth0').auth0__login_data_T} */
+/** @typedef {import('@ctx-core/auth0').auth0__signup_data_T} */
+/** @typedef {import('./index.d.ts').change_password__onsubmit__o_T} */
+/** @typedef {import('./index.d.ts').forgot_password__onsubmit__o_T} */
+/** @typedef {import('./index.d.ts').login__onsubmit__o_T} */
+/** @typedef {import('./index.d.ts').signup__onsubmit__o_T} */
 export class Auth0_c {
 	/**
 	 * @param ctx{Ctx}
