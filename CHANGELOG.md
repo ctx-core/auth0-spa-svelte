@@ -1,5 +1,19 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.2.118
+
+### Patch Changes
+
+- tsx: ^4.6.2 -> ^4.7.0
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/auth0@40.1.118
+  - @ctx-core/auth0-ui@15.1.10
+  - @ctx-core/dialog-ui-svelte@1.2.13
+  - @ctx-core/dom@15.1.60
+  - @ctx-core/nanostores@10.0.4
+
 ## 1.2.117
 
 ### Patch Changes
