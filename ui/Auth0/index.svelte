@@ -7,15 +7,15 @@
 		auth0__opened__class$_,
 		auth0__signup__opened$_,
 	} from '@ctx-core/auth0'
-	import { ctx__new } from '@ctx-core/object'
-	import { auth0_ui_svelte__setContext } from '../../auth0_ui_svelte__ctx'
-	import { Auth0_c } from '../Auth0_c'
-	import Auth0_Change_Password_Form from '../Auth0_Change_Password_Form'
-	import Auth0_Dialog_Close from '../Auth0_Dialog_Close'
-	import Auth0_Forgot_Password_Check_Email_Form from '../Auth0_Forgot_Password_Check_Email_Form'
-	import Auth0_Forgot_Password_Form from '../Auth0_Forgot_Password_Form'
-	import Auth0_Login_Form from '../Auth0_Login_Form'
-	import Auth0_Signup_Form from '../Auth0_Signup_Form'
+	import { ctx__new } from 'ctx-core/be'
+	import { auth0_ui_svelte__setContext } from '../../auth0_ui_svelte__ctx/index.js'
+	import { Auth0_c } from '../Auth0_c/index.js'
+	import Auth0_Change_Password_Form from '../Auth0_Change_Password_Form/index.js'
+	import Auth0_Dialog_Close from '../Auth0_Dialog_Close/index.js'
+	import Auth0_Forgot_Password_Check_Email_Form from '../Auth0_Forgot_Password_Check_Email_Form/index.js'
+	import Auth0_Forgot_Password_Form from '../Auth0_Forgot_Password_Form/index.js'
+	import Auth0_Login_Form from '../Auth0_Login_Form/index.js'
+	import Auth0_Signup_Form from '../Auth0_Signup_Form/index.js'
 	export let ctx = ctx__new(), dialog = false
 	auth0_ui_svelte__setContext(ctx)
 	const auth0__change_password__opened_ = auth0__change_password__opened$_(ctx)

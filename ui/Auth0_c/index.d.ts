@@ -9,9 +9,9 @@ import type {
 	auth0__token__error_T,
 	password_realm__body_T
 } from '@ctx-core/auth0'
-import type { noop, nullish } from '@ctx-core/function'
 import type { ReadableAtom_, WritableAtom_ } from '@ctx-core/nanostores'
-import type { Ctx } from '@ctx-core/object'
+import type { Ctx } from 'ctx-core/be'
+import type { noop, nullish } from 'ctx-core/function'
 export declare class Auth0_c {
 	protected ctx:Ctx
 	constructor(ctx:Ctx);

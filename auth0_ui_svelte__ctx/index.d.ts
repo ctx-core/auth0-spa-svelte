@@ -1,4 +1,4 @@
-import type { Ctx } from '@ctx-core/object'
+import type { Ctx } from 'ctx-core/be'
 export declare const auth0_ui_svelte__ctx__key:unique symbol
 export declare function auth0_ui_svelte__getContext():Ctx
 export declare function auth0_ui_svelte__setContext(ctx:Ctx):void

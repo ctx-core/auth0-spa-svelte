@@ -1,5 +1,6 @@
+/// <reference types="ctx-core" />
 import { getContext, setContext } from 'svelte'
-/** @typedef {import('@ctx-core/object').Ctx} */
+/** @typedef {Ctx} */
 export const auth0_ui_svelte__ctx__key = Symbol('auth0_ui_svelte__ctx')
 /**
  * @return {Ctx}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {
 		auth0__forgot_password__open,
 		auth0__signup__open,
@@ -9,7 +9,7 @@
 	import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
 	import { Auth0_c } from '../Auth0_c/index.js'
 	import { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
-	/** @type {import('@ctx-core/object').Ctx} */
+	/** @type {import('ctx-core/object').Ctx} */
 	export let ctx
 	export let error_class = ''
 	export let input_class = ''

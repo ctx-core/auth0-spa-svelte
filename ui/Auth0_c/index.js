@@ -1,3 +1,5 @@
+/// <reference types="ctx-core" />
+/// <reference types="./index.d.ts" />
 import {
 	auth0__body_,
 	auth0__change_password__POST__fetch2,
@@ -18,16 +20,11 @@ import {
 	password_realm__body_
 } from '@ctx-core/auth0'
 import { dom_a_, has_dom } from '@ctx-core/dom'
-import { noop } from '@ctx-core/function'
+import { noop } from 'ctx-core/function'
 import { onDestroy } from 'svelte'
-/** @typedef {import('@ctx-core/object').Ctx} */
 /** @typedef {import('@ctx-core/auth0').auth0__client_id__body_T} */
 /** @typedef {import('@ctx-core/auth0').auth0__login_data_T} */
 /** @typedef {import('@ctx-core/auth0').auth0__signup_data_T} */
-/** @typedef {import('./index.d.ts').change_password__onsubmit__o_T} */
-/** @typedef {import('./index.d.ts').forgot_password__onsubmit__o_T} */
-/** @typedef {import('./index.d.ts').login__onsubmit__o_T} */
-/** @typedef {import('./index.d.ts').signup__onsubmit__o_T} */
 export class Auth0_c {
 	/**
 	 * @param ctx{Ctx}
@@ -264,7 +261,6 @@ export class Auth0_c {
 			})
 			if (auth0_token_error) {
 				auth0__token__error__logout(this.ctx, auth0_token_error)
-				throw auth0_token_error
 				throw auth0_token_error
 			}
 			return await this.change_password({
