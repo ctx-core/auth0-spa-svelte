@@ -1,4 +1,4 @@
-import { Ctx } from 'ctx-core/be'
+import type { Ctx } from 'ctx-core/be'
 import type { SvelteComponent } from 'svelte'
 export class Auth0_Signup_Form extends SvelteComponent<{
 	ctx?:Ctx

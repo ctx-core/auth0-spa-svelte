@@ -1,5 +1,11 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.2.125
+
+### Patch Changes
+
+- Auth0_Signup_Form: import type
+
 ## 1.2.124
 
 ### Patch Changes
