@@ -10,11 +10,11 @@ import type {
 	password_realm__body_T
 } from '@ctx-core/auth0'
 import type { ReadableAtom_, WritableAtom_ } from '@ctx-core/nanostores'
-import type { Ctx } from 'ctx-core/be'
+import type { ctx_T } from 'ctx-core/be'
 import type { noop, nullish } from 'ctx-core/function'
 export declare class Auth0_c {
-	protected ctx:Ctx
-	constructor(ctx:Ctx);
+	protected ctx:ctx_T
+	constructor(ctx:ctx_T);
 	readonly auth0__opened__class_:ReadableAtom_<auth0__opened_T>
 	readonly auth0__token__json_:WritableAtom_<string|nullish>
 	readonly auth0__token__error_:WritableAtom_<auth0__token__error_T>

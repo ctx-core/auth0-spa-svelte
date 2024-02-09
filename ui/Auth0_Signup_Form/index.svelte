@@ -13,8 +13,14 @@
 	const AUTH0_DOMAIN_ = AUTH0_DOMAIN$_(ctx)
 	const auth0__token__error_ = auth0__token__error$_(ctx)
 	const _ = new Auth0_c(ctx)
-	let root:HTMLDivElement
-	let email__input:HTMLInputElement, password__input:HTMLInputElement, password_confirmation__input:HTMLInputElement
+	/** @type {HTMLDivElement} */
+	let root
+	/** @type {HTMLInputElement} */
+	let email__input
+	/** @type {HTMLInputElement} */
+	let password__input
+	/** @type {HTMLInputElement} */
+	let password_confirmation__input
 	/** @type {string} */
 	let username__error
 	$: username__error = $auth0__token__error_?.username

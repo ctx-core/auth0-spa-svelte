@@ -8,8 +8,8 @@
 	} from '@ctx-core/auth0'
 	import { auth0_ui_svelte__getContext } from '../../auth0_ui_svelte__ctx/index.js'
 	import { Auth0_c } from '../Auth0_c/index.js'
-	import { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
-	/** @type {import('ctx-core/object').Ctx} */
+himport { Auth0_Dialog_Close } from '../Auth0_Dialog_Close/index.js'
+	/** @type {import('ctx-core/object').ctx_T} */
 	export let ctx
 	export let error_class = ''
 	export let input_class = ''

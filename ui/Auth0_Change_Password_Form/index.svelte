@@ -10,15 +10,20 @@
 	const AUTH0_DOMAIN_ = AUTH0_DOMAIN$_(ctx)
 	const auth0__token__error_ = auth0__token__error$_(ctx)
 	const _ = new Auth0_c(ctx)
-	let root:HTMLDivElement
-	let password__input:HTMLInputElement
+	/** @type {HTMLDivElement} */
+	let root
+	/** @type {HTMLInputElement} */
+	let password__input
 	let password_confirmation__input
 	let password__error
 	$: password__error = $auth0__token__error_?.password
 	/** @type {string} */
 	let password_confirmation__error
 	$: password_confirmation__error = $auth0__token__error_?.password_confirmation
-	async function change_password__onsubmit(event:FormDataEvent) {
+	/**
+	 * @param {FormDataEvent}event
+	 */
+	async function change_password__onsubmit(event) {
 		dispatch(/** @type {any} */'submit__start')
 		try {
 			await _.change_password__onsubmit(event, {

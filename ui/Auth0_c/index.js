@@ -27,7 +27,7 @@ import { onDestroy } from 'svelte'
 /** @typedef {import('@ctx-core/auth0').auth0__signup_data_T} */
 export class Auth0_c {
 	/**
-	 * @param ctx{Ctx}
+	 * @param {ctx_T}ctx
 	 */
 	constructor(ctx) {
 		this.ctx = ctx
@@ -160,7 +160,7 @@ export class Auth0_c {
 			}, 100)
 		}
 		/**
-		 * @param event{Event}
+		 * @param {Event}event
 		 * @param params{signup__onsubmit__o_T}
 		 * @param forms__clear__schedule
 		 * @return {Promise<boolean>}
@@ -195,7 +195,7 @@ export class Auth0_c {
 			return true
 		}
 		/**
-		 * @param event{Event}
+		 * @param {Event}event
 		 * @param params{login__onsubmit__o_T}
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
@@ -216,7 +216,7 @@ export class Auth0_c {
 			await this.login({ username, password }, forms__clear__schedule)
 		}
 		/**
-		 * @param event{Event}
+		 * @param {Event}event
 		 * @param params{forgot_password__onsubmit__o_T}
 		 * @return {Promise<void>}
 		 */
@@ -243,7 +243,7 @@ export class Auth0_c {
 			auth0__forgot_password__check_email__open(this.ctx)
 		}
 		/**
-		 * @param event{Event}
+		 * @param {Event}event
 		 * @param params{change_password__onsubmit__o_T}
 		 * @param forms__clear__schedule{()=>void}
 		 * @return {Promise<void>}
