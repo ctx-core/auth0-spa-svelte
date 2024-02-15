@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/auth0-spa-svelte",
-	"version": "1.2.223",
+	"version": "1.2.224",
 	"description": "ctx-core auth0 ui component & express endpoints",
 	"keywords": [
 		"ctx-core",
@@ -34,11 +34,11 @@
 		"disable:test:unit:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"@ctx-core/auth0": "^40.1.218",
+		"@ctx-core/auth0": "^40.1.219",
 		"@ctx-core/auth0-ui": "^15.1.11",
 		"@ctx-core/dialog-ui-svelte": "^1.2.17",
-		"@ctx-core/dom": "^15.3.35",
-		"@ctx-core/nanostores": "^10.0.89",
+		"@ctx-core/dom": "^15.3.36",
+		"@ctx-core/nanostores": "^10.0.90",
 		"auth0-js": "^9.24.1",
 		"ctx-core": "^6.4.2",
 		"svelte": "^4.2.11"
