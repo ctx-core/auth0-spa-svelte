@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/auth0-spa-svelte",
-	"version": "1.2.242",
+	"version": "1.2.243",
 	"description": "ctx-core auth0 ui component & express endpoints",
 	"keywords": [
 		"ctx-core",
@@ -16,7 +16,11 @@
 		"url": "https://github.com/ctx-core/auth0-spa-svelte.git"
 	},
 	"license": "Apache-2.0",
-	"author": "Brian Takita",
+	"author": {
+		"name": "Brian Takita",
+		"url": "https://briantakita.me",
+		"email": "info+ctx-core-auth0-spa-svelte@briantakita.me"
+	},
 	"type": "module",
 	"types": "./index.d.ts",
 	"exports": {
@@ -34,13 +38,13 @@
 		"disable:test:unit:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"@ctx-core/auth0": "^40.1.236",
-		"@ctx-core/auth0-ui": "^15.1.11",
-		"@ctx-core/dialog-ui-svelte": "^1.2.18",
-		"@ctx-core/dom": "^15.3.52",
-		"@ctx-core/nanostores": "^10.0.106",
+		"@ctx-core/auth0": "^40.1.237",
+		"@ctx-core/auth0-ui": "^15.1.12",
+		"@ctx-core/dialog-ui-svelte": "^1.2.19",
+		"@ctx-core/dom": "^15.3.53",
+		"@ctx-core/nanostores": "^10.0.107",
 		"auth0-js": "^9.24.1",
-		"ctx-core": "^6.6.0",
+		"ctx-core": "^6.6.1",
 		"svelte": "^4.2.12"
 	},
 	"devDependencies": {
