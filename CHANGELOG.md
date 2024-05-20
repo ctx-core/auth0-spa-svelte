@@ -1,5 +1,13 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.2.284
+
+### Patch Changes
+
+- auth0-js: ^9.26.0 -> ^9.26.1
+- Updated dependencies
+  - @ctx-core/auth0@40.1.273
+
 ## 1.2.283
 
 ### Patch Changes
