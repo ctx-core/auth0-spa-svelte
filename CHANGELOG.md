@@ -1,5 +1,18 @@
 # @ctx-core/auth0-ui-svelte
 
+## 1.2.310
+
+### Patch Changes
+
+- chore: migrate scripts from pnpm to bun
+- Updated dependencies
+  - @ctx-core/auth0@40.1.298
+  - @ctx-core/auth0-ui@15.1.14
+  - ctx-core@7.2.34
+  - @ctx-core/dialog-ui-svelte@1.2.28
+  - @ctx-core/dom@15.3.104
+  - @ctx-core/nanostores@10.0.159
+
 ## 1.2.309
 
 ### Patch Changes
